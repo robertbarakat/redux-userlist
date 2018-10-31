@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-const UserDetail = ({actif}) => (
+const UserDetail = ({userActif}) => (
     <div>
-        {(!actif) ? <div>Sélectionner un user</div> : <div>{actif.name}</div>}
+        {(!userActif) ? <div>Sélectionner un user</div> : <div>{userActif.name} {userActif.surname}</div>}
     </div>
 )
 
 function mstp(state){
     return {
-        actif: state.actif
+        userActif: state.actif
     }
 }
 

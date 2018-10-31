@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectUser } from '../actions/selectUser';
 
-const UserList = ({ utilisateurs, selectUser }) => (
+const UserList = ({ myUser, selectUser }) => (
     <div>
         <ul>
-            {utilisateurs.map(element => (
+            {myUser.map(element => (
                 <li
                     key={element.id}
                     onClick={() => selectUser(element)}>
-                    {element.name}
+                    {element.name} {element.surname}
                 </li>
             ))}
         </ul>
@@ -19,7 +19,7 @@ const UserList = ({ utilisateurs, selectUser }) => (
 
 function mstp(state) {
     return {
-        utilisateurs: state.utilisateurs
+        myUser: state.utilisateurs
     }
 }
 
